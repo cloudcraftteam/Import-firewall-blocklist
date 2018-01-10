@@ -66,7 +66,7 @@ if (!$InputFile)
 	}
 	$zone = $Zone.ToLower() + ".zone";
 	$InputFile = $zone + ".txt";
-	if (-not $DeleteOnly) { wget http://www.ipdeny.com/ipblocks/data/countries/$zone -outfile $InputFile }
+	if (-not $DeleteOnly) { (new-object System.Net.WebClient).Downloadfile("http://www.ipdeny.com/ipblocks/data/countries/$zone",$InputFile) }
 }
 else {}
 
